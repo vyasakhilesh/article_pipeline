@@ -7,10 +7,10 @@ read -p "Enter the service name: " SERVICE_NAME
 BASE_DIR=$SERVICE_NAME
 
 # Create the directory structure
-mkdir -p $BASE_DIR/{docker,kubernetes/{manifests,helm-charts/templates},configs,service/{scripts,monitoring},scripts/{setup,monitoring,scaling},src,logs,tests,docs}
+mkdir -p $BASE_DIR/{$SERVICE_NAME-docker,kubernetes/{manifests,helm-charts/templates},configs,service/{scripts,monitoring},scripts/{setup,monitoring,scaling},src,logs,tests,docs}
 
 # Create necessary files in the directories
-touch $BASE_DIR/docker/{Dockerfile,docker-compose.yaml}
+touch $BASE_DIR/$SERVICE_NAME-docker/{Dockerfile,docker-compose.yaml}
 touch $BASE_DIR/kubernetes/manifests/{deployment.yaml,service.yaml,service-hpa.yaml,configmap.yaml,pvc.yaml,namespace.yaml,monitoring-deployment.yaml,monitoring-service.yaml}
 touch $BASE_DIR/kubernetes/helm-charts/templates/{deployment.yaml,service.yaml,hpa.yaml}
 touch $BASE_DIR/kubernetes/helm-charts/values.yaml
