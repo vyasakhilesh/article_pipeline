@@ -1,0 +1,1 @@
+docker exec spark-1 spark-submit --packages io.delta:delta-spark_2.12:3.3.0  ./work/test.py
