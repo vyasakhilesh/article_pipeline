@@ -11,16 +11,16 @@ default_args = {
 dag = DAG(
     "spark_minio_pipeline",
     default_args=default_args,
-    schedule_interval="@daily"
+    schedule_interval=None
 )
 
 spark_task = SparkSubmitOperator(
     task_id="run_spark_job",
-    application="/opt/spark/spark_job.py",
+    application="/opt/bitnami/spark/work/test.py",
     conn_id="spark_default",
-    executor_memory="2g",
+    executor_memory="1g",
     executor_cores="1",
-    packages="io.delta:delta-core_2.12:2.4.0",
+    packages="io.delta:delta-spark_2.12:3.3.1",
     dag=dag
 )
 
