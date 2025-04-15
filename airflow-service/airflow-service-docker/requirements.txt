@@ -1,4 +1,1 @@
-dbt-core
-dbt-postgres
-pymongo
-qdrant-client
+apache-airflow-providers-apache-spark

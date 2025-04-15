@@ -16,7 +16,7 @@ start:
 .PHONY: rebuild
 rebuild:
 	@echo "Rebuild and start the service using the start script..."
-	$(DOCKER_COMPOSE) up --build
+	$(DOCKER_COMPOSE) up -d --build --force-recreate
 
 # Stop the Docker services
 .PHONY: stop
