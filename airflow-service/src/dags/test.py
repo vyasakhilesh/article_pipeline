@@ -5,18 +5,18 @@ from datetime import datetime
 default_args = {
     "owner": "airflow",
     "start_date": datetime(2025, 4, 14),
-    "retries": 1
+    "retries": 0
 }
 
 dag = DAG(
     "spark_minio_pipeline",
     default_args=default_args,
-    schedule_interval=None
+    schedule=None
 )
 
 spark_task = SparkSubmitOperator(
     task_id="run_spark_job",
-    application="/opt/bitnami/spark/work/test.py",
+    application="/opt/airflow/dags/test_spark_job.py",
     conn_id="spark_default",
     executor_memory="1g",
     executor_cores="1",
